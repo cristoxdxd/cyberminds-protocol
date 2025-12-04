@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+    <title>CyberMinds // Protocol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="brand">CyberMinds <span>//</span> PROTOCOL</div>
+        <div class="status-panel">
+            TARGETS OWNED: <strong id="score">0</strong>/12
+        </div>
+    </nav>
+
+    <div class="container">
+        <p style="text-align: center; color: #555;">// MISIÓN: Comprometer el cliente web usando únicamente las
+            <strong>DevTools</strong>.</p>
+
+        <section class="challenge-card" id="c1">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>01. CSS Hiding</h2><span class="badge">LVL 1</span>
+                </div>
+                <p>Objetivo ofuscado en el DOM visual. Bypass de capa de estilo requerido.</p>
+                <div class="sandbox">
+                    <button id="btn-1" style="display: none;" onclick="capture(1, 'InV1sIbL3_El3m3nt')">REVELAR
+                        OBJETIVO</button>
+                    <div class="console-output" id="out-1">Esperando...</div>
+                    <div class="secret-display" id="secret-1"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Busca `display: none` en los estilos del elemento.
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c2">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>02. Disabled Attribute</h2><span class="badge">LVL 1</span>
+                </div>
+                <p>Acceso Root denegado. Restricción de atributo HTML detectada.</p>
+                <div class="sandbox">
+                    <input type="text" value="ROOT_ACCESS" readonly style="width: 50%; opacity: 0.5;">
+                    <button id="btn-2" disabled onclick="capture(2, 'Attr1but3_ByP4ss')">EJECUTAR ROOT</button>
+                    <div class="console-output" id="out-2">Acceso bloqueado.</div>
+                    <div class="secret-display" id="secret-2"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Elimina el atributo `disabled`.
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c3">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>03. Password Masking</h2><span class="badge">LVL 2</span>
+                </div>
+                <p>Credencial enmascarada en UI. Recupera el texto plano de la memoria.</p>
+                <div class="sandbox">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="password" id="secret-3" value="Pl4inT3xt_S3cr3ts" readonly>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Escribe lo que encontraste:</p>
+                    <input type="text" id="input-3" placeholder="Pegar secreto...">
+                    <button onclick="validateInput(3, 'Pl4inT3xt_S3cr3ts')">VALIDAR</button>
+                    <div class="console-output" id="out-3"></div>
+                    <div class="secret-display" id="secret-3"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Cambia `type="password"` a `type="text"`.
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c4">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>04. Input Length</h2><span class="badge">LVL 2</span>
+                </div>
+                <p>Buffer de entrada limitado. Ejecuta un desbordamiento de caracteres. CODE: 'Ov3rFl0w'</p>
+                <div class="sandbox">
+                    <input type="text" id="input-4" maxlength="4" placeholder="Code...">
+                    <button onclick="checkLength(4)">ENVIAR</button>
+                    <div class="console-output" id="out-4"></div>
+                    <div class="secret-display" id="secret-4"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Aumenta el `maxlength`.
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c5">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>05. Hidden Pricing</h2><span class="badge">LVL 3</span>
+                </div>
+                <p>Parámetro de transacción expuesto. Modifica el payload oculto.</p>
+                <div class="sandbox">
+                    <p>Producto: <strong>ZeroDay Exploit</strong> | Precio: $5000</p>
+                    <input type="hidden" id="price-5" value="5000">
+                    <button onclick="buyItem(5)">COMPRAR</button>
+                    <div class="console-output" id="out-5"></div>
+                    <div class="secret-display" id="secret-5"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Modifica el `value` del input `type="hidden"`.
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c6">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>06. Cookie Auth</h2><span class="badge">LVL 3</span>
+                </div>
+                <p>Nivel de privilegio insuficiente. Inyección de Cookie Admin requerida.</p>
+                <div class="sandbox">
+                    <button onclick="checkCookie(6)">VERIFICAR ACCESO</button>
+                    <div class="console-output" id="out-6">Cookie actual: session=guest</div>
+                    <div class="secret-display" id="secret-6"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Cookie requerida: `session=god_mode`. Consola: `document.cookie = "..."`
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c7">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>07. Local Storage</h2><span class="badge">LVL 3</span>
+                </div>
+                <p>Persistencia local insegura. Altera la configuración de acceso almacenada.</p>
+                <div class="sandbox">
+                    <button onclick="checkStorage(7)">LEER CONFIGURACIÓN</button>
+                    <div class="console-output" id="out-7">Acceso denegado.</div>
+                    <div class="secret-display" id="secret-7"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Pestaña Application > Local Storage. Value requerido en `config_access`:
+                    `granted`
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c8">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>08. JS Variables</h2><span class="badge">LVL 4</span>
+                </div>
+                <p>Variable de estado expuesta en memoria. Manipula el Scope Global.</p>
+                <div class="sandbox">
+                    <button onclick="checkVar(8)">CHECK STATUS</button>
+                    <div class="console-output" id="out-8">Status: LOCKED</div>
+                    <div class="secret-display" id="secret-8"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Consola: `systemStatus = "UNLOCKED"`
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c9">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>09. Function Rewrite</h2><span class="badge">LVL 5</span>
+                </div>
+                <p>Lógica de validación rechazada. Sobrescribe la función en Runtime.</p>
+                <div class="sandbox">
+                    <button
+                        onclick="if(authCheck()){ capture(9, 'Runt1m3_R3wr1t3'); } else { log(9, 'Fallo: authCheck() es false', true); }">EJECUTAR</button>
+                    <div class="console-output" id="out-9"></div>
+                    <div class="secret-display" id="secret-9"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Consola: `authCheck = () => true`
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c10">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>10. Comments Leak</h2><span class="badge">LVL 2</span>
+                </div>
+                <p>Fuga de información detectada. Rastrea artefactos de desarrollo olvidados.</p>
+                <div class="sandbox">
+                    <input type="text" id="input-10" placeholder="Código encontrado...">
+                    <button onclick="validateInput(10, 'H1dd3n_N0t3s_L34k')">VALIDAR</button>
+                    <div class="console-output" id="out-10"></div>
+                    <div class="secret-display" id="secret-10"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Inspect Element > Busca el secreto.
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c11">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>11. Time Travel</h2><span class="badge">LVL 4</span>
+                </div>
+                <p>Bloqueo temporal activo. Manipula el contador del cliente para acceso inmediato.</p>
+                <p>Se desbloquea en <span id="timer-val" style="color:var(--accent)">3600</span>s.</p>
+                <div class="sandbox">
+                    <button id="btn-11" disabled onclick="capture(11, 'T1m3_Tr4v3l3r')">DESCARGAR DATABASE</button>
+                    <div class="console-output" id="out-11">Esperando temporizador...</div>
+                    <div class="secret-display" id="secret-11"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Variable `countdownValue`.
+                </details>
+            </div>
+        </section>
+
+        <section class="challenge-card" id="c12">
+            <div class="card-content">
+                <div class="header-row">
+                    <h2>12. Network Sniffer</h2><span class="badge">LVL 5</span>
+                </div>
+                <p>Tráfico saliente en curso. Sniffing de Headers HTTP requerido.</p>
+                <div class="sandbox">
+                    <button onclick="doNetworkReq()">ENVIAR TRÁFICO</button>
+                    <br>
+                    <input type="text" id="input-12" placeholder="Header secreto..." style="margin-top:15px;">
+                    <button onclick="validateInput(12, 'N3tw0rk_Sn1ff3r_Pr0')">VALIDAR</button>
+                    <div class="console-output" id="out-12">Idle.</div>
+                    <div class="secret-display" id="secret-12"></div>
+                </div>
+                <details>
+                    <summary>💡 Pista</summary>Tab Network > Click Petición `secret` > Headers > X-Secret-Header.
+                </details>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="victory-overlay">
+        <div class="dashboard-panel">
+
+            <div class="dash-header">
+                SYSTEM PWNED
+            </div>
+
+            <div class="dash-grid">
+                <div class="dash-stat">
+                    <span class="stat-label">Access Level</span>
+                    <span class="stat-value glow">ROOT / GOD</span>
+                </div>
+                <div class="dash-stat">
+                    <span class="stat-label">Protocol Status</span>
+                    <span class="stat-value danger">COMPROMISED</span>
+                </div>
+                <div class="dash-stat">
+                    <span class="stat-label">Exploits Executed</span>
+                    <span class="stat-value">12 / 12</span>
+                </div>
+                <div class="dash-stat">
+                    <span class="stat-label">Security Integrity</span>
+                    <span class="stat-value danger">0%</span>
+                </div>
+            </div>
+
+            <div class="dash-footer">
+                <button class="btn-share" onclick="copyShareText(this)">
+                    <span>GENERAR REPORTE</span>
+                </button>
+                <button class="btn-share btn-close"
+                    onclick="document.getElementById('victory-overlay').style.display='none'">
+                    REGRESAR AL SISTEMA
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
