@@ -126,7 +126,7 @@ function doNetworkReq() {
 }
 
 // --- SHARE TEXT CONFIG ---
-const SHARE_MESSAGE = `⚠️ CYBERMINDS REPORT: SYSTEM COMPROMISED ⚠️\n\nHe logrado vulnerar los 12 niveles de seguridad del protocolo CyberMinds.\nDesde manipulación del DOM hasta intercepción de tráfico.\n\n📊 STATUS: ROOT ACCESS\n🔓 EXPLOITS: 12/12\n\n¿Crees que puedes proteger tu cliente?\nInténtalo aquí: [ENLACE]\n\n#CyberSecurity #Hacking #CTF #WebDev #CyberMinds`;
+const SHARE_MESSAGE = `⚠️ CYBERMINDS REPORT: SYSTEM COMPROMISED ⚠️\n\nHe logrado vulnerar los 12 niveles de seguridad del protocolo CyberMinds.\nDesde manipulación del DOM hasta intercepción de tráfico.\n\n📊 STATUS: ROOT ACCESS\n🔓 EXPLOITS: 12/12\n\n¿Crees que puedes proteger tu cliente?\nInténtalo aquí: https://cyberminds-protocol.netlify.app/\n\n#CyberSecurity #Hacking #CTF #WebDev #CyberMinds`;
 
 function copyShareText(btn) {
     navigator.clipboard.writeText(SHARE_MESSAGE).then(() => {
